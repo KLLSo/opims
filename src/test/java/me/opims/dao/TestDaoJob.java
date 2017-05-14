@@ -11,13 +11,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:xml/spring.xml")
-public class TestDaoTest {
+public class TestDaoJob {
     @Autowired
-    private TestDao testDao;
+    private JobDao jobDao;
 
     @Test
     public void test(){
-        System.out.println(testDao.getTime());
+        System.out.println(jobDao.getTime());
 
     }
 
