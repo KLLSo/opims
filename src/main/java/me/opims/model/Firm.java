@@ -224,4 +224,35 @@ public class Firm {
     public void setCategory(Integer category) {
         this.category = category;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Firm)) return false;
+
+        Firm firm = (Firm) o;
+
+        if (getIdFirm() != null ? !getIdFirm().equals(firm.getIdFirm()) : firm.getIdFirm() != null) return false;
+        if (getNameFirm() != null ? !getNameFirm().equals(firm.getNameFirm()) : firm.getNameFirm() != null)
+            return false;
+        if (getNameFirmer() != null ? !getNameFirmer().equals(firm.getNameFirmer()) : firm.getNameFirmer() != null)
+            return false;
+        if (getMail() != null ? !getMail().equals(firm.getMail()) : firm.getMail() != null) return false;
+        if (getPhone() != null ? !getPhone().equals(firm.getPhone()) : firm.getPhone() != null) return false;
+        if (getZhanghao() != null ? !getZhanghao().equals(firm.getZhanghao()) : firm.getZhanghao() != null)
+            return false;
+        return getCategory() != null ? getCategory().equals(firm.getCategory()) : firm.getCategory() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getIdFirm() != null ? getIdFirm().hashCode() : 0;
+        result = 31 * result + (getNameFirm() != null ? getNameFirm().hashCode() : 0);
+        result = 31 * result + (getNameFirmer() != null ? getNameFirmer().hashCode() : 0);
+        result = 31 * result + (getMail() != null ? getMail().hashCode() : 0);
+        result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
+        result = 31 * result + (getZhanghao() != null ? getZhanghao().hashCode() : 0);
+        result = 31 * result + (getCategory() != null ? getCategory().hashCode() : 0);
+        return result;
+    }
 }

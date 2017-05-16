@@ -36,8 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 body {
 	margin: 0;
 	font-family: 微软雅黑;
-	background-image: url(images/.jpg);
-	background-repeat: no-repea;
+	background-repeat:no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	background-color: #DDDDDD

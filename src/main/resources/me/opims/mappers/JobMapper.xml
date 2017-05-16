@@ -102,4 +102,10 @@
     </set>
     where id_job = #{idJob,jdbcType=INTEGER}
   </update>
+  <select id="selectJobsByName" parameterType="String" resultType="Job">
+    select
+     job.id_job,job.name_job ,job.category_job,job.date,firm.name_firmer "firm.name_firmer"
+     from job INNER JOIN firm on job.id_firm = firm.id_firm
+     WHERE  job.name_job like '%${name}%'
+  </select>
 </mapper>

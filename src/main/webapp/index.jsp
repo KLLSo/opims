@@ -21,6 +21,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <form action="${pageContext.request.contextPath}/adminLogin" method="post">
+        <input type="text" name="nameAdmin"/><br/>
+        <input type="password" name="password"><br/>
+        <input type="submit" value="Submit"/>
+    </form>
   </body>
 </html>

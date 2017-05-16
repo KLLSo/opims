@@ -160,4 +160,15 @@ public class Admin {
     public void setCategory(Integer category) {
         this.category = category;
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "idAdmin=" + idAdmin +
+                ", nameAdmin='" + nameAdmin + '\'' +
+                ", phone=" + phone +
+                ", zhanghao='" + zhanghao + '\'' +
+                ", category=" + category +
+                '}';
+    }
 }

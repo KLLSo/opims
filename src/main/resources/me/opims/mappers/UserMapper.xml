@@ -102,4 +102,11 @@
     </set>
     where id_user = #{idUser,jdbcType=INTEGER}
   </update>
+
+  <select id="selectUsersByname" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/>
+    from user
+    where name_user like '%${name}%'
+      ORDER BY  category DESC
+  </select>
 </mapper>

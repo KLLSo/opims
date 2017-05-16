@@ -82,4 +82,10 @@
     </set>
     where id_post = #{idPost,jdbcType=INTEGER}
   </update>
+  <select id="selectPosts"  resultType="me.opims.model.Post">
+    SELECT <include refid="Base_Column_List"/>
+    FROM post
+    where bt_post like '%${content}%'
+    ORDER BY date_sx
+  </select>
 </mapper>

@@ -1,11 +1,10 @@
 package me.opims.dao;
 
+import me.opims.entity.CommentDTO;
 import me.opims.model.Firm;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 public interface FirmMapper {
     /**
@@ -86,4 +85,8 @@ public interface FirmMapper {
         "where id_firm = #{idFirm,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Firm record);
+
+    List<Firm> selectFirmsByName(@Param("name") String name);
+
+    CommentDTO selectCommentInfo(@Param("id") Integer id);
 }

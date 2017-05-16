@@ -1,11 +1,9 @@
 package me.opims.dao;
 
 import me.opims.model.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 public interface UserMapper {
     /**
@@ -82,8 +80,17 @@ public interface UserMapper {
           "mail = #{mail,jdbcType=VARCHAR},",
           "phone = #{phone,jdbcType=INTEGER},",
           "zhanghao = #{zhanghao,jdbcType=VARCHAR},",
-          "category = #{category,jdbcType=INTEGER}",
+          "category = #{categor,jdbcType=INTEGER}",
         "where id_user = #{idUser,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(User record);
+
+    @Update({
+            "update user",
+            "set category = #{category}",
+            "where id_user = #{idUser}"
+    })
+    int updateUserCategoryById(@Param("id_user") Integer id_user,@Param("category") int category);
+
+    List<User> selectUsersByname(@Param("name") String name);
 }

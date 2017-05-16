@@ -102,4 +102,21 @@
     </set>
     where id_firm = #{idFirm,jdbcType=INTEGER}
   </update>
+
+  <select id="selectFirmsByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+
+    SELECT <include refid="Base_Column_List"/>
+    from firm
+    WHERE name_firm LIKE '%${name}%'
+    ORDER BY category DESC
+
+  </select>
+
+  <select id="selectCommentInfo" resultType="me.opims.entity.CommentDTO">
+
+    select job.name_job,firm.name_firm
+    from job INNER  join firm on job.id_firm = firm.id_firm
+    where job.id_job = #{id}
+  </select>
+
 </mapper>

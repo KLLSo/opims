@@ -13,6 +13,7 @@
     </bean>
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+        <property name="typeAliasesPackage" value="me.opims.model"/>
         <property name="configLocation" value="classpath:/xml/mybatis.xml"/>
         <property name="mapperLocations" value="classpath:/me/opims/mappers/*.xml"/>
     </bean>

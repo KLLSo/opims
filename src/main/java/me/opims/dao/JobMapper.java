@@ -1,11 +1,9 @@
 package me.opims.dao;
 
 import me.opims.model.Job;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 public interface JobMapper {
     /**
@@ -84,4 +82,6 @@ public interface JobMapper {
         "where id_job = #{idJob,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Job record);
+
+    List<Job> selectJobsByName(@Param("name") String name);
 }

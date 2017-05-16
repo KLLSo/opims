@@ -1,11 +1,9 @@
 package me.opims.dao;
 
 import me.opims.model.Post;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 public interface PostMapper {
     /**
@@ -80,4 +78,6 @@ public interface PostMapper {
         "where id_post = #{idPost,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Post record);
+
+    List<Post> selectPosts(@Param("content") String content);
 }
